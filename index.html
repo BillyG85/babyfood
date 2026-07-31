@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10개월 후기이유식 3종 · 밥4:채소3:고기2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1ECDE;
+    --paper-card:#FBF8F0;
+    --ink:#28352F;
+    --ink-soft:#5B675F;
+    --gold:#D9A441;
+    --gold-deep:#B8842A;
+    --celadon:#7E9E8E;
+    --celadon-deep:#5F7E6F;
+    --brick:#B25D45;
+    --brick-deep:#8F4633;
+    --line:#DCD4BE;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(126,158,142,0.08), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(178,93,69,0.06), transparent 50%);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(18px,5vw,28px) 80px;}
+
+  header.hero{margin-bottom:clamp(36px,6vw,56px);}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--celadon-deep);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--celadon-deep);display:inline-block;}
+  h1{
+    font-family:'Noto Serif KR', serif;
+    font-weight:900;
+    font-size:clamp(30px,5.4vw,46px);
+    line-height:1.22;
+    margin:0 0 16px;
+    letter-spacing:-.01em;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(180deg, transparent 62%, rgba(217,164,65,.45) 62%);
+  }
+  .hero p{
+    max-width:58ch;
+    color:var(--ink-soft);
+    font-size:15.5px;
+    margin:0 0 14px;
+  }
+  .hero .hint{
+    font-size:13px;color:var(--celadon-deep);
+    font-family:'JetBrains Mono',monospace;
+    margin:0 0 26px;
+  }
+  .legend{
+    display:flex;flex-wrap:wrap;gap:10px 22px;
+    padding:16px 18px;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-size:13.5px;
+  }
+  .legend .item{display:flex;align-items:center;gap:8px;}
+  .legend .swatch{width:12px;height:12px;border-radius:3px;flex:none;}
+  .legend .label{color:var(--ink-soft);}
+  .legend .label b{color:var(--ink);font-weight:700;}
+
+  .recipe{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:clamp(20px,4vw,34px);
+    margin-bottom:34px;
+    position:relative;
+    overflow:hidden;
+  }
+  .recipe::before{
+    content:"";
+    position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg, var(--gold), var(--celadon), var(--brick));
+  }
+  .recipe-head{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .recipe-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--celadon-deep);
+    letter-spacing:.1em;
+  }
+  .recipe-title{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;
+    font-size:clamp(21px,3vw,26px);
+    margin:4px 0 0;
+  }
+  .serving-box{display:flex;flex-direction:column;align-items:flex-end;gap:9px;}
+  .stepper{
+    display:flex;align-items:center;gap:10px;
+    background:#fff;border:1px solid var(--line);border-radius:100px;padding:4px 6px 4px 14px;
+  }
+  .stepper .step-days{
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink);
+    min-width:44px;text-align:center;
+  }
+  .step-btn{
+    width:26px;height:26px;border-radius:50%;border:none;background:var(--paper);
+    color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:15px;line-height:1;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .15s, color .15s, transform .1s;
+  }
+  .step-btn:hover{background:var(--celadon);color:#fff;}
+  .step-btn:active{transform:scale(.92);}
+  .step-btn:disabled{opacity:.35;cursor:not-allowed;background:var(--paper);color:var(--ink);}
+  .serving-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:7px 14px;
+    white-space:nowrap;
+  }
+
+  .ratio{margin:20px 0 26px;}
+  .ratio-track{
+    display:flex;width:100%;height:34px;border-radius:9px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.06);
+  }
+  .ratio-seg{
+    height:100%;transform:scaleX(0);transform-origin:left;
+    transition:transform 1.1s cubic-bezier(.22,.9,.3,1);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .ratio.in-view .ratio-seg{transform:scaleX(1);}
+  .seg-grain{background:linear-gradient(180deg,var(--gold),var(--gold-deep));}
+  .seg-veg{background:linear-gradient(180deg,var(--celadon),var(--celadon-deep));}
+  .seg-meat{background:linear-gradient(180deg,var(--brick),var(--brick-deep));}
+  .ratio-labels{
+    display:flex;justify-content:space-between;
+    margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);
+  }
+  .ratio-labels span b{color:var(--ink);font-weight:700;}
+  .protein-note{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:10px;font-size:12.5px;color:var(--brick-deep);
+    font-family:'JetBrains Mono',monospace;
+  }
+  .protein-note::before{content:"＋";font-weight:700;}
+
+  .recipe-body{display:grid;grid-template-columns:1fr 1.35fr;gap:30px;}
+  @media (max-width:640px){.recipe-body{grid-template-columns:1fr;} .recipe-head{flex-direction:column;} .serving-box{align-items:flex-start;}}
+
+  .block-title{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;font-size:15.5px;
+    margin:0 0 12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .block-title::before{content:"";width:14px;height:1px;background:var(--ink-soft);display:inline-block;}
+
+  table.ingredients{width:100%;border-collapse:collapse;font-size:14px;}
+  table.ingredients td{padding:7px 0;border-bottom:1px dashed var(--line);}
+  table.ingredients td:first-child{color:var(--ink);}
+  table.ingredients td:last-child{
+    text-align:right;font-family:'JetBrains Mono',monospace;color:var(--ink-soft);
+    font-weight:500;
+  }
+  table.ingredients tr:last-child td{border-bottom:none;}
+
+  ol.steps{list-style:none;margin:0;padding:0;counter-reset:step;}
+  ol.steps li{
+    counter-increment:step;
+    display:grid;grid-template-columns:26px 1fr;gap:12px;
+    font-size:14px;color:var(--ink);
+    padding:9px 0;border-bottom:1px dashed var(--line);
+  }
+  ol.steps li:last-child{border-bottom:none;}
+  ol.steps li::before{
+    content:counter(step);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;color:#fff;background:var(--celadon-deep);
+    width:22px;height:22px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:1px;flex:none;
+  }
+  ol.steps li .step-title{font-weight:700;display:block;margin-bottom:2px;}
+  ol.steps li .step-timer{
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--gold-deep);
+    margin-left:6px;font-weight:500;
+  }
+
+  .note{
+    margin-top:20px;padding:14px 16px;border-radius:10px;
+    background:rgba(126,158,142,.09);border:1px solid rgba(126,158,142,.28);
+    font-size:12.8px;color:var(--ink-soft);
+  }
+  .note b{color:var(--ink);}
+
+  footer{
+    text-align:center;color:var(--ink-soft);font-size:12.5px;
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ratio-seg{transition:none;transform:scaleX(1);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">10개월 · 후기이유식 3단계</div>
+    <h1>쿠쿠 IH 영양죽 모드로 짓는<br><em>밥4 : 채소3 : 고기2</em> 이유식</h1>
+    <p>영유아 식품 전문가 자료가 안내하는 후기(10~12개월) 이유식의 이상적 비율을 기준으로 맞춘 배치 조리 레시피 3종입니다. 1회분씩 소분해 냉동 보관하세요.</p>
+    <p class="hint">각 레시피의 −/+ 버튼으로 며칠분을 만들지 조절하면 재료량이 자동으로 바뀝니다 (최대 14일 · 냉동 보관 기준).</p>
+    <div class="legend">
+      <div class="item"><span class="swatch" style="background:var(--gold)"></span><span class="label">쌀·잡곡 <b>(밥 4)</b></span></div>
+      <div class="item"><span class="swatch" style="background:var(--celadon)"></span><span class="label">채소 <b>(3)</b></span></div>
+      <div class="item"><span class="swatch" style="background:var(--brick)"></span><span class="label">고기 <b>(2)</b></span></div>
+    </div>
+  </header>
+
+  <!-- ================= RECIPE 1 ================= -->
+  <article class="recipe" data-recipe data-base-servings="7" data-per-serving="170">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-num">RECIPE 01</div>
+        <h2 class="recipe-title">소고기 시금치 퀴노아죽</h2>
+      </div>
+      <div class="serving-box">
+        <div class="stepper">
+          <button type="button" class="step-btn" data-dir="-1" aria-label="일수 줄이기">−</button>
+          <span class="step-days"><span class="days-amt">7</span>일치</span>
+          <button type="button" class="step-btn" data-dir="1" aria-label="일수 늘리기">+</button>
+        </div>
+        <div class="serving-tag">1회 170g · 총 약 <span class="total-amt">1,190</span>g</div>
+      </div>
+    </div>
+
+    <div class="ratio" data-ratio>
+      <div class="ratio-track">
+        <div class="ratio-seg seg-grain" style="width:45%"></div>
+        <div class="ratio-seg seg-veg" style="width:33%"></div>
+        <div class="ratio-seg seg-meat" style="width:22%"></div>
+      </div>
+      <div class="ratio-labels">
+        <span>쌀+퀴노아 <b class="amt" data-base="270">270</b>g</span>
+        <span>채소 <b class="amt" data-base="200">200</b>g</span>
+        <span>소고기 <b class="amt" data-base="130">130</b>g</span>
+      </div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <h3 class="block-title">재료</h3>
+        <table class="ingredients">
+          <tr><td>쌀 (불린 것)</td><td><span class="amt" data-base="210">210</span> g</td></tr>
+          <tr><td>퀴노아 (불린 것)</td><td><span class="amt" data-base="60">60</span> g</td></tr>
+          <tr><td>소고기 (안심·우둔, 다짐육)</td><td><span class="amt" data-base="130">130</span> g</td></tr>
+          <tr><td>시금치 (데쳐서 다진 것)</td><td><span class="amt" data-base="80">80</span> g</td></tr>
+          <tr><td>느타리버섯 (다진 것)</td><td><span class="amt" data-base="60">60</span> g</td></tr>
+          <tr><td>양파 (다진 것)</td><td><span class="amt" data-base="60">60</span> g</td></tr>
+          <tr><td>물</td><td><span class="amt" data-base="600">600</span> ml</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="block-title">만드는 법</h3>
+        <ol class="steps">
+          <li><span><span class="step-title">쌀·퀴노아 불리기<span class="step-timer">30~60분</span></span>깨끗이 씻어 물에 불려주세요.</span></li>
+          <li><span><span class="step-title">고기·채소 손질</span>소고기는 핏물 제거 후 약 0.3~0.4cm로 다지고, 양파·시금치(데친 것)·느타리버섯도 같은 크기로 다져주세요.</span></li>
+          <li><span><span class="step-title">내솥에 재료 넣기</span>불린 쌀·퀴노아, 소고기, 양파를 넣고 물을 부어주세요.</span></li>
+          <li><span><span class="step-title">영양죽 모드 취사<span class="step-timer">약 40~60분</span></span>쿠쿠 IH 밥솥의 '영양죽' 모드로 취사를 시작합니다.</span></li>
+          <li><span><span class="step-title">잎채소 넣고 뜸들이기<span class="step-timer">5분</span></span>취사 후 시금치·느타리버섯을 넣고 섞어 잔열로 익혀주세요.</span></li>
+          <li><span><span class="step-title">농도 확인 및 소분</span>되직하면 물을 더해 조절하고, 식힌 뒤 170g씩 소분해주세요.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="note"><b>보관 · 주의</b> — 간은 넣지 않았어요. 퀴노아·느타리버섯이 처음이라면 소량으로 먼저 시도하세요. 냉장 24~48시간, 냉동 2주 이내 소비를 권장하며 급여 전 충분히 데운 뒤 식혀서 온도를 확인해주세요.</div>
+  </article>
+
+  <!-- ================= RECIPE 2 ================= -->
+  <article class="recipe" data-recipe data-base-servings="7" data-per-serving="170">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-num">RECIPE 02</div>
+        <h2 class="recipe-title">닭고기 사과 당근 양배추죽</h2>
+      </div>
+      <div class="serving-box">
+        <div class="stepper">
+          <button type="button" class="step-btn" data-dir="-1" aria-label="일수 줄이기">−</button>
+          <span class="step-days"><span class="days-amt">7</span>일치</span>
+          <button type="button" class="step-btn" data-dir="1" aria-label="일수 늘리기">+</button>
+        </div>
+        <div class="serving-tag">1회 170g · 총 약 <span class="total-amt">1,190</span>g</div>
+      </div>
+    </div>
+
+    <div class="ratio" data-ratio>
+      <div class="ratio-track">
+        <div class="ratio-seg seg-grain" style="width:45%"></div>
+        <div class="ratio-seg seg-veg" style="width:33%"></div>
+        <div class="ratio-seg seg-meat" style="width:22%"></div>
+      </div>
+      <div class="ratio-labels">
+        <span>쌀+수수 <b class="amt" data-base="270">270</b>g</span>
+        <span>당근+양배추+사과 <b class="amt" data-base="200">200</b>g</span>
+        <span>닭고기 <b class="amt" data-base="130">130</b>g</span>
+      </div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <h3 class="block-title">재료</h3>
+        <table class="ingredients">
+          <tr><td>쌀 (불린 것)</td><td><span class="amt" data-base="210">210</span> g</td></tr>
+          <tr><td>수수 (불린 것)</td><td><span class="amt" data-base="60">60</span> g</td></tr>
+          <tr><td>닭고기 (닭안심·살코기, 지방 제거)</td><td><span class="amt" data-base="130">130</span> g</td></tr>
+          <tr><td>당근 (다진 것)</td><td><span class="amt" data-base="80">80</span> g</td></tr>
+          <tr><td>양배추 (다진 것)</td><td><span class="amt" data-base="80">80</span> g</td></tr>
+          <tr><td>사과 (강판에 간 것)</td><td><span class="amt" data-base="40">40</span> g</td></tr>
+          <tr><td>물</td><td><span class="amt" data-base="600">600</span> ml</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="block-title">만드는 법</h3>
+        <ol class="steps">
+          <li><span><span class="step-title">쌀·수수 불리기<span class="step-timer">30~60분</span></span>깨끗이 씻어 물에 불려주세요.</span></li>
+          <li><span><span class="step-title">고기·채소 손질</span>닭고기는 지방·껍질 제거 후 약 0.3~0.4cm로 다지고, 당근·양배추도 같은 크기로 다져주세요.</span></li>
+          <li><span><span class="step-title">내솥에 재료 넣기</span>불린 쌀·수수, 닭고기, 당근, 양배추를 넣고 물을 부어주세요.</span></li>
+          <li><span><span class="step-title">영양죽 모드 취사<span class="step-timer">약 40~60분</span></span>쿠쿠 IH 밥솥의 '영양죽' 모드로 취사를 시작합니다.</span></li>
+          <li><span><span class="step-title">사과 넣고 뜸들이기<span class="step-timer">5분</span></span>강판에 간 사과를 넣고 섞어 잔열로 익혀주세요. 신맛이 걱정되면 미리 살짝 데쳐 넣어도 좋아요.</span></li>
+          <li><span><span class="step-title">농도 확인 및 소분</span>되직하면 물을 더해 조절하고, 식힌 뒤 170g씩 소분해주세요.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="note"><b>보관 · 주의</b> — 간은 넣지 않았어요. 수수가 처음이라면 소량으로 먼저 시도하세요. 냉장 24~48시간, 냉동 2주 이내 소비를 권장하며 급여 전 충분히 데운 뒤 식혀서 온도를 확인해주세요.</div>
+  </article>
+
+  <!-- ================= RECIPE 3 ================= -->
+  <article class="recipe" data-recipe data-base-servings="7" data-per-serving="130">
+    <div class="recipe-head">
+      <div>
+        <div class="recipe-num">RECIPE 03</div>
+        <h2 class="recipe-title">브로콜리 애호박죽</h2>
+      </div>
+      <div class="serving-box">
+        <div class="stepper">
+          <button type="button" class="step-btn" data-dir="-1" aria-label="일수 줄이기">−</button>
+          <span class="step-days"><span class="days-amt">7</span>일치</span>
+          <button type="button" class="step-btn" data-dir="1" aria-label="일수 늘리기">+</button>
+        </div>
+        <div class="serving-tag">1회 130g · 총 약 <span class="total-amt">910</span>g</div>
+      </div>
+    </div>
+
+    <div class="ratio" data-ratio>
+      <div class="ratio-track">
+        <div class="ratio-seg seg-grain" style="width:58%"></div>
+        <div class="ratio-seg seg-veg" style="width:42%"></div>
+      </div>
+      <div class="ratio-labels">
+        <span>쌀 <b class="amt" data-base="220">220</b>g</span>
+        <span>브로콜리+애호박 <b class="amt" data-base="160">160</b>g</span>
+      </div>
+      <div class="protein-note">단백질은 다른 끼니에서 (고기·생선·두부·달걀)</div>
+    </div>
+
+    <div class="recipe-body">
+      <div>
+        <h3 class="block-title">재료</h3>
+        <table class="ingredients">
+          <tr><td>쌀 (불린 것)</td><td><span class="amt" data-base="220">220</span> g</td></tr>
+          <tr><td>브로콜리 (데쳐서 다진 것)</td><td><span class="amt" data-base="80">80</span> g</td></tr>
+          <tr><td>애호박 (다진 것)</td><td><span class="amt" data-base="80">80</span> g</td></tr>
+          <tr><td>물</td><td><span class="amt" data-base="570">570</span> ml</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="block-title">만드는 법</h3>
+        <ol class="steps">
+          <li><span><span class="step-title">쌀 불리기<span class="step-timer">30~60분</span></span>깨끗이 씻어 물에 불려주세요.</span></li>
+          <li><span><span class="step-title">채소 손질</span>브로콜리는 데쳐서 잘게 다지고, 애호박도 비슷한 크기(약 0.3~0.4cm)로 썰어주세요.</span></li>
+          <li><span><span class="step-title">내솥에 재료 넣기</span>불린 쌀과 애호박을 넣고 물을 부어주세요.</span></li>
+          <li><span><span class="step-title">영양죽 모드 취사<span class="step-timer">약 40~60분</span></span>쿠쿠 IH 밥솥의 '영양죽' 모드로 취사를 시작합니다.</span></li>
+          <li><span><span class="step-title">브로콜리 넣고 뜸들이기<span class="step-timer">5분</span></span>데쳐 다진 브로콜리를 넣고 섞어 잔열로 익혀주세요.</span></li>
+          <li><span><span class="step-title">농도 확인 및 소분</span>필요하면 물을 더해 조절하고, 식힌 뒤 130g씩 소분해주세요.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="note"><b>보관 · 주의</b> — 고기가 없는 채소죽이라 같은 날 다른 끼니에서 단백질을 꼭 보충해주세요. 간은 넣지 않았고, 냉장 24~48시간, 냉동 2주 이내 소비를 권장합니다.</div>
+  </article>
+
+  <footer>10개월 후기이유식 3단계 · 밥4:채소3:고기2 비율 기준 · 물 양은 완성 농도를 보고 조절하세요.</footer>
+</div>
+
+<script>
+  // ratio bar entrance animation
+  const ratios = document.querySelectorAll('[data-ratio]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, {threshold:.35});
+  ratios.forEach(r=>io.observe(r));
+
+  // adjustable servings per recipe
+  function initRecipe(article){
+    const baseServings = parseInt(article.dataset.baseServings, 10);
+    const perServing = parseInt(article.dataset.perServing, 10);
+    const MIN = 3, MAX = 14;
+    let servings = baseServings;
+
+    const amtEls = article.querySelectorAll('.amt');
+    const daysEls = article.querySelectorAll('.days-amt');
+    const totalEls = article.querySelectorAll('.total-amt');
+    const decBtn = article.querySelector('.step-btn[data-dir="-1"]');
+    const incBtn = article.querySelector('.step-btn[data-dir="1"]');
+
+    function render(){
+      const factor = servings / baseServings;
+      amtEls.forEach(el=>{
+        const base = parseFloat(el.dataset.base);
+        el.textContent = Math.round(base * factor).toLocaleString('ko-KR');
+      });
+      daysEls.forEach(el=> el.textContent = servings);
+      const total = Math.round(perServing * servings);
+      totalEls.forEach(el=> el.textContent = total.toLocaleString('ko-KR'));
+      if(decBtn) decBtn.disabled = servings <= MIN;
+      if(incBtn) incBtn.disabled = servings >= MAX;
+    }
+
+    if(decBtn) decBtn.addEventListener('click', ()=>{
+      servings = Math.max(MIN, servings - 1);
+      render();
+    });
+    if(incBtn) incBtn.addEventListener('click', ()=>{
+      servings = Math.min(MAX, servings + 1);
+      render();
+    });
+    render();
+  }
+  document.querySelectorAll('.recipe').forEach(initRecipe);
+</script>
+</body>
+</html>
